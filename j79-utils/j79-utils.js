@@ -1,7 +1,7 @@
 /**************************************************************************************
  j79-utils
 
- Copyright (c) 2016 Yevgeny Sergeyev
+ Copyright (c) 2016-2017 Yevgeny Sergeyev
  License : Apache 2.0
 
  Set of utility functions for JavaScript
@@ -92,7 +92,6 @@ ex.isUnescapedCharAt = function (str, char, index) {
 	return true;
 };
 
-
 // C:\Program Files\nodejs\node.exe => C:\Program Files\nodejs
 ex.removeLastPathNode = function (param) {
 	return param.replace(/[\\\/][^\\\/]*$/g, "");
@@ -111,4 +110,27 @@ ex.assemblePath = function () {
 
 	// removing double/triple/... slash characters
 	return params.replace(/\/{2,}/g, "/").replace(/\\{2,}/g, "\\");
+};
+
+// resolves object's values
+ex.getObjectValues = function (obj) {
+	var result = [];
+	for (var key in obj) {
+		result.push(obj[key]);
+	}
+
+	return result;
+};
+
+// escapes regex special characters
+ex.escapeRegex = function (str) {
+	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+};
+
+// makes OR regex of array elements
+ex.makeOrRegexOfArray = function (arr) {
+	var result = arr.join('\n');
+	result = ex.escapeRegex(result);
+	result = result.replace(/\n/g, '|');
+	return result;
 };

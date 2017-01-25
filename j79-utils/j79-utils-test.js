@@ -1,7 +1,7 @@
 /**************************************************************************************
  j79-utils test
 
- Copyright (c) 2016 Yevgeny Sergeyev
+ Copyright (c) 2016-2017 Yevgeny Sergeyev
  License : Apache 2.0
  **************************************************************************************/
 
@@ -48,5 +48,9 @@ assert(j79Utils.fixPathSlashes('C:\\Program Files\\nodejs\\node.exe') === ['C:',
 assert(j79Utils.fixPathSlashes('/home/srv/test.sh') === ['', 'home', 'srv', 'test.sh'].join(path.sep));
 
 assert(j79Utils.assemblePath('c:\\\\', '\\Program Files\\', 'nodejs') === 'c:\\Program Files\\nodejs');
+
+assert(j79Utils.getObjectValues({1: 2, 3: 4})[1] === 4);
+assert(j79Utils.escapeRegex('-  [  ]  /  {  }  (  )  *  +  ?  .  \\  ^  $  |') === '\\-  \\[  \\]  \\/  \\{  \\}  \\(  \\)  \\*  \\+  \\?  \\.  \\\\  \\^  \\$  \\|');
+assert(j79Utils.makeOrRegexOfArray([1, 2, 'hello', 'world?']) === '1|2|hello|world\\?');
 
 console.log('All tests are passed OK ;)');
