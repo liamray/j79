@@ -15,27 +15,27 @@ ex.getType = function (obj) {
 };
 
 ex.isString = function (obj) {
-	return ex.getType(obj) === "[object String]";
+	return ex.getType(obj) === '[object String]';
 };
 
 ex.isInt = function (obj) {
-	return ex.getType(obj) === "[object Number]";
+	return ex.getType(obj) === '[object Number]';
 };
 
 ex.isBool = function (obj) {
-	return ex.getType(obj) === "[object Boolean]";
+	return ex.getType(obj) === '[object Boolean]';
 };
 
 ex.isArray = function (obj) {
-	return ex.getType(obj) === "[object Array]";
+	return ex.getType(obj) === '[object Array]';
 };
 
 ex.isObject = function (obj) {
-	return ex.getType(obj) === "[object Object]";
+	return ex.getType(obj) === '[object Object]' || ex.getType(obj) === '[object Math]';
 };
 
 ex.isFunction = function (obj) {
-	return ex.getType(obj) === "[object Function]";
+	return ex.getType(obj) === '[object Function]';
 };
 
 ex.wrapWithArrayIfNeeded = function (obj) {
@@ -109,7 +109,7 @@ ex.assemblePath = function () {
 	var params = args.join(path.sep);
 
 	// removing double/triple/... slash characters
-	return params.replace(/\/{2,}/g, "/").replace(/\\{2,}/g, "\\");
+	return params.replace(/\/{2,}/g, '/').replace(/\\{2,}/g, '\\');
 };
 
 // resolves object's values
@@ -124,7 +124,7 @@ ex.getObjectValues = function (obj) {
 
 // escapes regex special characters
 ex.escapeRegex = function (str) {
-	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
 };
 
 // makes OR regex of array elements

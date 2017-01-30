@@ -15,6 +15,7 @@ assert(j79Utils.isInt(0));
 assert(j79Utils.isBool(true));
 assert(j79Utils.isArray([]));
 assert(j79Utils.isObject({}));
+assert(j79Utils.isObject(Math));
 assert(j79Utils.isFunction(function () {
 }));
 
