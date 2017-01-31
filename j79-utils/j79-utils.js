@@ -18,7 +18,7 @@ ex.isString = function (obj) {
 	return ex.getType(obj) === '[object String]';
 };
 
-ex.isInt = function (obj) {
+ex.isNumber = function (obj) {
 	return ex.getType(obj) === '[object Number]';
 };
 
