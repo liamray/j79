@@ -67,7 +67,8 @@ ex.obj2ArrayIfNeeded = function (obj) {
 };
 
 ex.isValSet = function (val) {
-	return (val != null) && ( val != undefined );
+	//                                            | NaN check ( NaN doesn't equal itself )
+	return (val != null) && ( val != undefined ) && ( val === val );
 };
 
 ex.replaceAll = function (str, searchVal, replaceVal) {

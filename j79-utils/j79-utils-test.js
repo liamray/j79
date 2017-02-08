@@ -34,8 +34,11 @@ assert(obj2ArrayIfNeeded.length === 3 && obj2ArrayIfNeeded[2] === 3);
 
 assert(!j79Utils.isValSet(null));
 assert(!j79Utils.isValSet(undefined));
+assert(!j79Utils.isValSet(NaN));
 assert(j79Utils.isValSet(''));
 assert(j79Utils.isValSet({}));
+assert(j79Utils.isValSet(true));
+assert(j79Utils.isValSet(-1));
 
 assert(j79Utils.replaceAll('701 198 373 198 560, 198', '198', 'nothing') === '701 nothing 373 nothing 560, nothing');
 
