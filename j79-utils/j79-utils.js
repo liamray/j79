@@ -10,32 +10,45 @@
 var ex = module.exports;
 var path = require('path');
 
+const TYPE_STRING = '[object String]';
+const TYPE_NUMBER = '[object Number]';
+const TYPE_BOOLEAN = '[object Boolean]';
+const TYPE_ARRAY = '[object Array]';
+const TYPE_OBJECT = '[object Object]';
+const TYPE_MATH = '[object Math]';
+var TYPE_FUNCTION = '[object Function]';
+
 ex.getType = function (obj) {
 	return Object.prototype.toString.call(obj);
 };
 
 ex.isString = function (obj) {
-	return ex.getType(obj) === '[object String]';
+	return ex.getType(obj) === TYPE_STRING;
 };
 
 ex.isNumber = function (obj) {
-	return ex.getType(obj) === '[object Number]';
+	return ex.getType(obj) === TYPE_NUMBER;
 };
 
 ex.isBool = function (obj) {
-	return ex.getType(obj) === '[object Boolean]';
+	return ex.getType(obj) === TYPE_BOOLEAN;
 };
 
 ex.isArray = function (obj) {
-	return ex.getType(obj) === '[object Array]';
+	return ex.getType(obj) === TYPE_ARRAY;
 };
 
 ex.isObject = function (obj) {
-	return ex.getType(obj) === '[object Object]' || ex.getType(obj) === '[object Math]';
+	return ex.getType(obj) === TYPE_OBJECT || ex.getType(obj) === TYPE_MATH;
 };
 
 ex.isFunction = function (obj) {
-	return ex.getType(obj) === '[object Function]';
+	return ex.getType(obj) === TYPE_FUNCTION;
+};
+
+ex.isPrimitive = function (obj) {
+	var type = ex.getType(obj);
+	return type === TYPE_STRING || type === TYPE_NUMBER || type === TYPE_BOOLEAN;
 };
 
 ex.wrapWithArrayIfNeeded = function (obj) {

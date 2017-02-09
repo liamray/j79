@@ -39,6 +39,12 @@ assert(j79Utils.isValSet(''));
 assert(j79Utils.isValSet({}));
 assert(j79Utils.isValSet(true));
 assert(j79Utils.isValSet(-1));
+assert(j79Utils.isPrimitive(1.4));
+assert(j79Utils.isPrimitive('test'));
+assert(j79Utils.isPrimitive(true));
+assert(!j79Utils.isPrimitive({}));
+assert(!j79Utils.isPrimitive(new Date()));
+assert(!j79Utils.isPrimitive(Math));
 
 assert(j79Utils.replaceAll('701 198 373 198 560, 198', '198', 'nothing') === '701 nothing 373 nothing 560, nothing');
 
