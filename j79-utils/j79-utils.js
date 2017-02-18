@@ -55,6 +55,14 @@ ex.wrapWithArrayIfNeeded = function (obj) {
 	return ex.isArray(obj) ? obj : [obj];
 };
 
+ex.unwrapFromArrayIfPossible = function (param) {
+	if (ex.isArray(param) && param.length === 1) {
+		return param[0];
+	} else {
+		return param;
+	}
+};
+
 ex.wrapWithObjIfNeeded = function (obj, key) {
 	if (ex.isObject(obj)) {
 		return obj;

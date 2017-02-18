@@ -22,6 +22,10 @@ assert(j79Utils.isFunction(function () {
 assert(j79Utils.wrapWithArrayIfNeeded('hello')[0] === 'hello');
 assert(j79Utils.wrapWithObjIfNeeded('world', 'our')['our'] === 'world');
 
+var arr = [1, 2, 3];
+assert(j79Utils.unwrapFromArrayIfPossible(arr) === arr);
+assert(j79Utils.unwrapFromArrayIfPossible([4]) === 4);
+
 var obj = {
 	a: 1,
 	b: {
