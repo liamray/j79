@@ -67,4 +67,19 @@ assert(j79Utils.getObjectValues({1: 2, 3: 4})[1] === 4);
 assert(j79Utils.escapeRegex('-  [  ]  /  {  }  (  )  *  +  ?  .  \\  ^  $  |') === '\\-  \\[  \\]  \\/  \\{  \\}  \\(  \\)  \\*  \\+  \\?  \\.  \\\\  \\^  \\$  \\|');
 assert(j79Utils.makeOrRegexOfArray([1, 2, 'hello', 'world?']) === '1|2|hello|world\\?');
 
+var esc1 = j79Utils.escapePrecedingSlashes('123456', 3);
+assert(esc1.escaped === false);
+assert(esc1.escapedStr === '123456');
+assert(esc1.correctedPos === 3);
+
+var esc2 = j79Utils.escapePrecedingSlashes('123\\456', 4);
+assert(esc2.escaped === true);
+assert(esc2.escapedStr === '123456');
+assert(esc2.correctedPos === 3);
+
+var esc3 = j79Utils.escapePrecedingSlashes('123\\\\456', 5);
+assert(esc3.escaped === false);
+assert(esc3.escapedStr === '123\\456');
+assert(esc3.correctedPos === 4);
+
 console.log('All tests are passed OK ;)');
