@@ -82,4 +82,11 @@ assert(esc3.escaped === false);
 assert(esc3.escapedStr === '123\\456');
 assert(esc3.correctedPos === 4);
 
+j79Utils.abortIfNodeVersionLowerThan(4);
+try {
+	j79Utils.abortIfNodeVersionLowerThan(99);
+} catch (e) {
+	console.log('Everything is ok');
+}
+
 console.log('All tests are passed OK ;)');

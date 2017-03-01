@@ -9,6 +9,7 @@
 
 var ex = module.exports;
 var path = require('path');
+var util = require('util');
 
 const TYPE_STRING = '[object String]';
 const TYPE_NUMBER = '[object Number]';
@@ -188,4 +189,18 @@ ex.escapePrecedingSlashes = function (str, pos) {
 	result.correctedPos = pos - halfSlashes;
 
 	return result;
+};
+
+ex.abortIfNodeVersionLowerThan = function (versionNumeric) {
+	var processVersion = process.version;
+	var currentVersion = processVersion.match(/^v(\d+)/);
+	if (currentVersion === null || currentVersion.length !== 2) {
+		throw util.format('Strange nodejs version. Expecting for version in the vXXX format, but got a [%s]', processVersion);
+	}
+
+	currentVersion = currentVersion[1];
+	var currentVersionNr = parseInt(currentVersion);
+	if (currentVersionNr < versionNumeric) {
+		throw util.format('This application requires at least [v%s] version of nodejs, but current version is [%s]', versionNumeric, processVersion);
+	}
 };
