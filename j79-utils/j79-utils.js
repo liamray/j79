@@ -204,3 +204,7 @@ ex.abortIfNodeVersionLowerThan = function (versionNumeric) {
 		throw util.format('This application requires at least [v%s] version of nodejs, but current version is [%s]', versionNumeric, processVersion);
 	}
 };
+
+ex.rawNowISODate = function () {
+	return new Date().toISOString().replace('T', ' ').replace('Z', '');
+};
