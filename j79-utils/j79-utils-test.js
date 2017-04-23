@@ -89,4 +89,28 @@ try {
 	console.log('Everything is ok');
 }
 
+j79Utils.winston.level = 'debug';
+assert(j79Utils.isLogLevel('silly'));
+assert(j79Utils.isLogLevel('debug'));
+assert(j79Utils.isLogLevel('verbose') === false);
+assert(j79Utils.isLogLevel('info') === false);
+assert(j79Utils.isLogLevel('warn') === false);
+assert(j79Utils.isLogLevel('error') === false);
+
+j79Utils.winston.level = 'silly';
+assert(j79Utils.isLogLevel('silly'));
+assert(j79Utils.isLogLevel('debug') === false);
+assert(j79Utils.isLogLevel('verbose') === false);
+assert(j79Utils.isLogLevel('info') === false);
+assert(j79Utils.isLogLevel('warn') === false);
+assert(j79Utils.isLogLevel('error') === false);
+
+j79Utils.winston.level = 'error';
+assert(j79Utils.isLogLevel('silly'));
+assert(j79Utils.isLogLevel('debug'));
+assert(j79Utils.isLogLevel('verbose'));
+assert(j79Utils.isLogLevel('info'));
+assert(j79Utils.isLogLevel('warn'));
+assert(j79Utils.isLogLevel('error'));
+
 console.log('All tests are passed OK ;)');

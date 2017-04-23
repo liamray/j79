@@ -1,6 +1,6 @@
 {
   "name": "j79-utils",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Set of utility functions for JavaScript",
   "main": "j79-utils.js",
   "scripts": {
@@ -25,6 +25,7 @@
     "url": "https://github.com/yevgeny-sergeyev/j79.git"
   },
   "dependencies": {
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "winston": "2.3.1"
   }
 }

@@ -7,9 +7,10 @@
  Set of utility functions for JavaScript
  **************************************************************************************/
 
-var ex = module.exports;
-var path = require('path');
-var util = require('util');
+const ex = module.exports;
+const path = require('path');
+const util = require('util');
+const winston = require('winston');
 
 const TYPE_STRING = '[object String]';
 const TYPE_NUMBER = '[object Number]';
@@ -17,7 +18,7 @@ const TYPE_BOOLEAN = '[object Boolean]';
 const TYPE_ARRAY = '[object Array]';
 const TYPE_OBJECT = '[object Object]';
 const TYPE_MATH = '[object Math]';
-var TYPE_FUNCTION = '[object Function]';
+const TYPE_FUNCTION = '[object Function]';
 
 ex.getType = function (obj) {
 	return Object.prototype.toString.call(obj);
@@ -208,3 +209,9 @@ ex.abortIfNodeVersionLowerThan = function (versionNumeric) {
 ex.rawNowISODate = function () {
 	return new Date().toISOString().replace('T', ' ').replace('Z', '');
 };
+
+ex.isLogLevel = function (level) {
+	return winston.levels[winston.level] <= winston.levels[level];
+};
+
+ex.winston = winston;
