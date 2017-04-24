@@ -211,7 +211,7 @@ ex.rawNowISODate = function () {
 };
 
 ex.isLogLevel = function (level) {
-	return winston.levels[winston.level] <= winston.levels[level];
+	return winston.levels[winston.level] >= winston.levels[level];
 };
 
 ex.winston = winston;
