@@ -12,44 +12,44 @@ const path = require('path');
 const util = require('util');
 const winston = require('winston');
 
-const TYPE_STRING = '[object String]';
-const TYPE_NUMBER = '[object Number]';
-const TYPE_BOOLEAN = '[object Boolean]';
-const TYPE_ARRAY = '[object Array]';
-const TYPE_OBJECT = '[object Object]';
-const TYPE_MATH = '[object Math]';
-const TYPE_FUNCTION = '[object Function]';
+ex.TYPE_STRING = '[object String]';
+ex.TYPE_NUMBER = '[object Number]';
+ex.TYPE_BOOLEAN = '[object Boolean]';
+ex.TYPE_ARRAY = '[object Array]';
+ex.TYPE_OBJECT = '[object Object]';
+ex.TYPE_MATH = '[object Math]';
+ex.TYPE_FUNCTION = '[object Function]';
 
 ex.getType = function (obj) {
 	return Object.prototype.toString.call(obj);
 };
 
 ex.isString = function (obj) {
-	return ex.getType(obj) === TYPE_STRING;
+	return ex.getType(obj) === ex.TYPE_STRING;
 };
 
 ex.isNumber = function (obj) {
-	return ex.getType(obj) === TYPE_NUMBER;
+	return ex.getType(obj) === ex.TYPE_NUMBER;
 };
 
 ex.isBool = function (obj) {
-	return ex.getType(obj) === TYPE_BOOLEAN;
+	return ex.getType(obj) === ex.TYPE_BOOLEAN;
 };
 
 ex.isArray = function (obj) {
-	return ex.getType(obj) === TYPE_ARRAY;
+	return ex.getType(obj) === ex.TYPE_ARRAY;
 };
 
 ex.isObject = function (obj) {
-	return ex.getType(obj) === TYPE_OBJECT || ex.getType(obj) === TYPE_MATH;
+	return ex.getType(obj) === ex.TYPE_OBJECT || ex.getType(obj) === ex.TYPE_MATH;
 };
 
 ex.isFunction = function (obj) {
-	return ex.getType(obj) === TYPE_FUNCTION;
+	return ex.getType(obj) === ex.TYPE_FUNCTION;
 };
 
 ex.isPrimitiveType = function (type) {
-	return type === TYPE_STRING || type === TYPE_NUMBER || type === TYPE_BOOLEAN;
+	return type === ex.TYPE_STRING || type === ex.TYPE_NUMBER || type === ex.TYPE_BOOLEAN;
 };
 
 ex.isPrimitive = function (obj) {
