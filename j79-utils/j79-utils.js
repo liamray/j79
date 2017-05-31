@@ -48,9 +48,13 @@ ex.isFunction = function (obj) {
 	return ex.getType(obj) === TYPE_FUNCTION;
 };
 
+ex.isPrimitiveType = function (type) {
+	return type === TYPE_STRING || type === TYPE_NUMBER || type === TYPE_BOOLEAN;
+};
+
 ex.isPrimitive = function (obj) {
 	var type = ex.getType(obj);
-	return type === TYPE_STRING || type === TYPE_NUMBER || type === TYPE_BOOLEAN;
+	return ex.isPrimitiveType(type);
 };
 
 ex.wrapWithArrayIfNeeded = function (obj) {

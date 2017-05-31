@@ -49,6 +49,11 @@ assert(j79Utils.isPrimitive(true));
 assert(!j79Utils.isPrimitive({}));
 assert(!j79Utils.isPrimitive(new Date()));
 assert(!j79Utils.isPrimitive(Math));
+assert(!j79Utils.isPrimitiveType(j79Utils.getType(Math)));
+assert(j79Utils.isPrimitiveType(j79Utils.getType(0)));
+assert(j79Utils.isPrimitiveType(j79Utils.getType('')));
+assert(j79Utils.isPrimitiveType(j79Utils.getType(true)));
+assert(!j79Utils.isPrimitiveType(j79Utils.getType([])));
 
 assert(j79Utils.replaceAll('701 198 373 198 560, 198', '198', 'nothing') === '701 nothing 373 nothing 560, nothing');
 
