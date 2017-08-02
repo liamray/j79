@@ -211,7 +211,9 @@ ex.abortIfNodeVersionLowerThan = function (versionNumeric) {
 };
 
 ex.rawNowISODate = function () {
-	return new Date().toISOString().replace('T', ' ').replace('Z', '');
+	var tzOffset = (new Date()).getTimezoneOffset() * 60000;
+	var localISOTime = (new Date(Date.now() - tzOffset)).toISOString();
+	return localISOTime.replace('T', ' ').replace('Z', '');
 };
 
 ex.isLogLevel = function (level) {
