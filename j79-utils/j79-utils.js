@@ -1,7 +1,7 @@
 /**************************************************************************************
  j79-utils
 
- Copyright (c) 2016-2017 Yevgeny Sergeyev
+ Copyright (c) 2016-2017 Liam Ray
  License : Apache 2.0
 
  Set of utility functions for JavaScript
